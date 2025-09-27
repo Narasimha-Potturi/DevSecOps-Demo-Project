@@ -100,17 +100,23 @@ This project implements a full DevSecOps pipeline with the following components:
 
 ### Running Locally
 
-1. Install dependencies:
+1. Clone the repository:
+```bash
+git clone https://github.com/Narasimha-Potturi/DevSecOps-Demo-Project.git
+cd DevSecOps-Demo-Project
+```
+
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-2. Start development server:
+3. Start development server:
 ```bash
 npm run dev
 ```
 
-3. Build for production:
+4. Build for production:
 ```bash
 npm run build
 ```
@@ -214,9 +220,6 @@ This pipeline implements several security best practices:
 4. Push to the branch: `git push origin feature/AmazingFeature`
 5. Open a Pull Request
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details
 
 
 
