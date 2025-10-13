@@ -9,6 +9,7 @@ DevSecOps is an evolution of DevOps that integrates security practices into ever
 Key differences between DevOps and DevSecOps:
 - **DevOps**: Focuses on automation, continuous integration, and continuous delivery (CI/CD) to speed up development and deployment cycles.
 - **DevSecOps**: Maintains the speed of DevOps while adding security checks and controls throughout the pipeline, including:
+
   - Code security scanning
   - Dependency vulnerability checks
   - Container security scanning
@@ -51,7 +52,6 @@ The architecture implements a comprehensive DevSecOps pipeline with the followin
 1. **Development**:
    - Local development with React & TypeScript
    - Code quality checks with ESLint
-   - Unit testing with Jest
 
 2. **Version Control & CI (GitHub)**:
    - Code hosting and version control
@@ -67,15 +67,13 @@ The architecture implements a comprehensive DevSecOps pipeline with the followin
 4. **Continuous Deployment**:
    - ArgoCD for GitOps
    - Automated deployments
-   - Configuration management
 
 5. **Production (Kubernetes)**:
    - Container orchestration
    - High availability
    - Auto-scaling
-   - Health monitoring
 
-This project implements a full DevSecOps pipeline with the following components:
+### This project implements a full DevSecOps pipeline with the following components
 
 1. **Application Layer**:
    - React + TypeScript frontend
@@ -85,21 +83,21 @@ This project implements a full DevSecOps pipeline with the following components:
 2. **Container Layer**:
    - Multi-stage Dockerfile for optimized builds
    - Nginx as the production web server
+   - Trivy for container vulnerability scanning
 
 3. **CI/CD Pipeline**:
    - GitHub Actions for CI/CD workflow
    - ArgoCD for GitOps-based deployments
    - Kubernetes for container orchestration
 
-## Local Development
+## Prerequisites to run the project locally
 
-### Prerequisites
 - Node.js (v20 or later)
 - npm (Latest version)
-- Docker (for container builds)
-- kubectl (for Kubernetes deployment)
+- Docker 
+- kubectl
 
-### Running Locally
+### Running Locally without Docker
 
 1. Clone the repository:
 ```bash
@@ -121,6 +119,24 @@ npm run dev
 ```bash
 npm run build
 ```
+### Running Locally with Docker
+
+1. Clone the repository:
+```bash
+git clone https://github.com/Narasimha-Potturi/DevSecOps-Demo-Project.git
+cd DevSecOps-Demo-Project
+```
+
+2. Build the Docker image:
+```bash
+docker build -t tic-tac-toe .
+```
+
+3. Run the Docker container:
+```bash
+docker run -p <HOST_PORT>:<CONTAINER_PORT> image_name
+```
+4. Access the application at `http://localhost:host_port`
 
 ## DevSecOps Pipeline Workflow
 
@@ -170,48 +186,11 @@ The application is deployed to Kubernetes with the following specifications:
 - Liveness and readiness probes configured
 - Automatic container registry secret management
 
-## Deployment
 
 ### Prerequisites for Deployment:
 1. A Kubernetes cluster
 2. ArgoCD installed on the cluster
 3. Access to GitHub Container Registry
-
-### Setting up ArgoCD:
-
-1. Install ArgoCD:
-```bash
-kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-```
-
-2. Configure your application in ArgoCD:
-```bash
-kubectl apply -f kubernetes/deployment.yaml
-```
-
-### Accessing the Application:
-
-Once deployed, the application will be available through your Kubernetes cluster's ingress or LoadBalancer service (configuration may vary based on your setup).
-
-## Security Features
-
-This pipeline implements several security best practices:
-
-1. **Container Security**:
-   - Multi-stage builds to minimize attack surface
-   - Non-root user in production container
-   - Minimal base images
-
-2. **Infrastructure Security**:
-   - Resource limits to prevent DoS
-   - Network policies (if implemented)
-   - Secret management through Kubernetes
-
-3. **Application Security**:
-   - Dependency scanning
-   - Static code analysis
-   - Regular security updates
 
 ## Contributing
 
@@ -220,6 +199,7 @@ This pipeline implements several security best practices:
 3. Commit your changes: `git commit -m 'Add some AmazingFeature'`
 4. Push to the branch: `git push origin feature/AmazingFeature`
 5. Open a Pull Request
+6. Submit your changes
 
 
 
