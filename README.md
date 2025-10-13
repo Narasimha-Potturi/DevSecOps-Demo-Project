@@ -25,7 +25,7 @@ The project features a classic Tic-tac-toe game where:
 - If all squares are filled and no player has won, the game is a draw
 
 ### Game Screenshot
-![Game Screenshot](image.png)
+<img width="1472" height="829" alt="Application_Screenshot" src="https://github.com/user-attachments/assets/969b3f31-d54d-4722-b7ca-7433eeff74a8" />
 
 ### Project Structure
 ```
@@ -43,7 +43,8 @@ src/
 
 ## DevSecOps Architecture
 
-![DevSecOps Pipeline Architecture](<DevSecOps Demo.png>)
+<img width="1243" height="512" alt="DevSecOps Demo" src="https://github.com/user-attachments/assets/b0e0de45-1153-422c-818d-aac443151549" />
+
 
 The architecture implements a comprehensive DevSecOps pipeline with the following stages:
 
